@@ -1,6 +1,7 @@
 package pl.edu.agh;
 
 import com.google.common.collect.Lists;
+import com.google.common.primitives.Doubles;
 import org.apache.commons.io.IOUtils;
 import smile.Network;
 
@@ -62,14 +63,40 @@ public class App {
     }
 
     private static void writeCarMatchingResult(Network network) {
+        List<CarMatchingResult> carMatchingResults = getCarMatchingResults(network);
+        Collections.sort(carMatchingResults, new Comparator<CarMatchingResult>() {
+            @Override
+            public int compare(CarMatchingResult o1, CarMatchingResult o2) {
+                return Doubles.compare(o1.getBuyValue(), o2.getBuyValue());
+            }
+        });
+        Collections.reverse(carMatchingResults);
+        for (CarMatchingResult carMatchingResult : carMatchingResults) {
+            System.out.println(carMatchingResult);
+        }
+    }
+
+    private static List<CarMatchingResult> getCarMatchingResults(Network network) {
+        List<CarMatchingResult> carMatchingResults = new LinkedList<>();
         for (String car : LIST_OF_AVAILABLE_CARS) {
-            System.out.println("Result for car: " + car);
+            Double buyValue = null;
+            Double notBuyValue = null;
             for (int i = 0; i < network.getOutcomeCount(car); i++) {
                 String outcomeName = network.getOutcomeId(car, i);
                 double outcomeValue = network.getNodeValue(car)[i];
-                System.out.println(outcomeName + " " + outcomeValue);
+                if ("Buy".equals(outcomeName)) {
+                    buyValue = outcomeValue;
+                }
+                else if ("NotBuy".equals(outcomeName)) {
+                    notBuyValue = outcomeValue;
+                }
             }
-            System.out.println("End of result of car:" + car);
-        }
+
+            if (buyValue == null || notBuyValue == null) {
+                throw new UnsupportedOperationException("Car should have in outcome values Buy and NotBuy");
+            }
+
+            carMatchingResults.add(new CarMatchingResult(car, buyValue, notBuyValue));
+        } return carMatchingResults;
     }
 }
