@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="ClientAge">
+			<state id="YoungClient" />
+			<state id="MidAgeClient" />
+			<state id="OldClient" />
+			<probabilities>0.3333333333333334 0.3333333333333334 0.3333333333333333</probabilities>
+		</cpt>
+		<cpt id="ClientMoney">
+			<state id="PoorClient" />
+			<state id="MidWealthClient" />
+			<state id="RichMoney" />
+			<probabilities>0.3333333333333334 0.3333333333333334 0.3333333333333333</probabilities>
+		</cpt>
+		<cpt id="ClientFamily">
+			<state id="SingleClient" />
+			<state id="FamilyClient" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="ClientLocation">
+			<state id="BigCity" />
+			<state id="Village" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="CarAge">
+			<state id="CarNew" />
+			<state id="CarOld" />
+			<parents>ClientAge</parents>
+			<probabilities>0.7 0.3 0.5 0.5 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="CarPrice">
+			<state id="CarExpensive" />
+			<state id="CarCheap" />
+			<parents>ClientMoney</parents>
+			<probabilities>0.33 0.6699999999999999 0.5 0.5 0.6666666666666667 0.3333333333333333</probabilities>
+		</cpt>
+		<cpt id="CarFamily">
+			<state id="SingleCar" />
+			<state id="FamilyCar" />
+			<parents>ClientFamily</parents>
+			<probabilities>0.7 0.3 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="CarLocation">
+			<state id="BigCityCar" />
+			<state id="VillageCar" />
+			<parents>ClientLocation</parents>
+			<probabilities>0.7 0.3 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="BugattiVeyron">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.9 0.1 0.4 0.6 0.6 0.4 0.4 0.6 0.3 0.7 0.2 0.8 0.3 0.7 0.2 0.8 0.4 0.6 0.3 0.7 0.4 0.6 0.3 0.7 0.3 0.7 0.2 0.8 0.3 0.7 0.2 0.8</probabilities>
+		</cpt>
+		<cpt id="MacerattiGranTurismo">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.85 0.15 0.5 0.5 0.7 0.3 0.6 0.4 0.4 0.6 0.3 0.7 0.4 0.6 0.3 0.7 0.4 0.6 0.3 0.7 0.4 0.6 0.4 0.6 0.15 0.85 0.1 0.9 0.15 0.85 0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Maybach_57S">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.8 0.2 0.6 0.4 0.75 0.25 0.7 0.3 0.4 0.6 0.3 0.7 0.4 0.6 0.3 0.7 0.2 0.8 0.1 0.9 0.2 0.8 0.1 0.9 0.4 0.6 0.3 0.7 0.4 0.6 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="HammerH3">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.6 0.4 0.9 0.1 0.7 0.3 0.8 0.2 0.7 0.3 0.3 0.7 0.2 0.8 0.3 0.7 0.3 0.7 0.4 0.6 0.3 0.7 0.4 0.6 0.2 0.8 0.3 0.7 0.3 0.7 0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="KiaCedd">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.55 0.45 0.7 0.3 0.85 0.15 0.85 0.15 0.3 0.7 0.3 0.7 0.3 0.7 0.3 0.7 0.4 0.6 0.4 0.6 0.4 0.6 0.4 0.6 0.3 0.7 0.3 0.7 0.3 0.7 0.3 0.7</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5590.0" name="Network1" faultnameformat="nodestate">
+			<node id="ClientAge">
+				<name>ClientAge</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>47 34 108 72</position>
+			</node>
+			<node id="ClientMoney">
+				<name>ClientMoney</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>147 30 218 74</position>
+			</node>
+			<node id="ClientFamily">
+				<name>ClientFamily</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>268 32 337 75</position>
+			</node>
+			<node id="ClientLocation">
+				<name>ClientLocation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>383 29 461 77</position>
+			</node>
+			<node id="CarAge">
+				<name>CarAge</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>19 195 96 225</position>
+			</node>
+			<node id="BugattiVeyron">
+				<name>BugattiVeyron</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>6 400 86 450</position>
+			</node>
+			<node id="MacerattiGranTurismo">
+				<name>MacerattiGranTurismo</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>137 378 253 450</position>
+			</node>
+			<node id="Maybach_57S">
+				<name>Maybach_57S</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>301 395 381 445</position>
+			</node>
+			<node id="HammerH3">
+				<name>HammerH3</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>433 374 550 453</position>
+			</node>
+			<node id="KiaCedd">
+				<name>KiaCedd</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>671 357 788 436</position>
+			</node>
+			<node id="CarPrice">
+				<name>CarPrice</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>171 186 227 221</position>
+			</node>
+			<node id="CarFamily">
+				<name>CarFamily</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>327 192 388 230</position>
+			</node>
+			<node id="CarLocation">
+				<name>CarLocation</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>442 194 513 238</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
