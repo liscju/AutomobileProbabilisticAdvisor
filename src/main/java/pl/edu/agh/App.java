@@ -42,16 +42,15 @@ public class App {
     }
 
     private static void runApp(Network network) {
-        Scanner in = new Scanner(System.in);
-
-        setClientProperties(network, in);
+        setClientProperties(network);
 
         network.updateBeliefs();
 
         writeCarMatchingResult(network);
     }
 
-    private static void setClientProperties(Network network, Scanner in) {
+    private static void setClientProperties(Network network) {
+        Scanner in = new Scanner(System.in);
         for (String clientProperty : CLIENT_PROPERTIES.keySet()) {
             System.out.println("Choose property for: " + clientProperty);
             System.out.println(CLIENT_PROPERTIES.get(clientProperty));
