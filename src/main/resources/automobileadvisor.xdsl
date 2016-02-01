@@ -77,6 +77,18 @@
 			<parents>CarAge CarPrice CarFamily CarLocation</parents>
 			<probabilities>0.55 0.45 0.7 0.3 0.85 0.15 0.85 0.15 0.3 0.7 0.3 0.7 0.3 0.7 0.3 0.7 0.4 0.6 0.4 0.6 0.4 0.6 0.4 0.6 0.3 0.7 0.3 0.7 0.3 0.7 0.3 0.7</probabilities>
 		</cpt>
+		<cpt id="Fiat_125p">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.01 0.99 0.05 0.95 0.02 0.98 0.03 0.97 0.25 0.75 0.3 0.7 0.4 0.6 0.41 0.59 0.25 0.75 0.3 0.7 0.3 0.7 0.35 0.65 0.7 0.3 0.64 0.36 0.75 0.25 0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="Renault_Kangoo">
+			<state id="Buy" />
+			<state id="NotBuy" />
+			<parents>CarAge CarPrice CarFamily CarLocation</parents>
+			<probabilities>0.45 0.55 0.4 0.6 0.75 0.25 0.45 0.55 0.35 0.65 0.3 0.7 0.5 0.5 0.45 0.55 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5</probabilities>
+		</cpt>
 	</nodes>
 	<extensions>
 		<genie version="1.0" app="GeNIe 2.0.5590.0" name="Network1" faultnameformat="nodestate">
@@ -127,28 +139,28 @@
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>137 378 253 450</position>
+				<position>66 454 182 526</position>
 			</node>
 			<node id="Maybach_57S">
 				<name>Maybach_57S</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>301 395 381 445</position>
+				<position>199 544 279 594</position>
 			</node>
 			<node id="HammerH3">
 				<name>HammerH3</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>433 374 550 453</position>
+				<position>287 574 404 653</position>
 			</node>
 			<node id="KiaCedd">
 				<name>KiaCedd</name>
 				<interior color="e5f6f7" />
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
-				<position>671 357 788 436</position>
+				<position>439 617 556 696</position>
 			</node>
 			<node id="CarPrice">
 				<name>CarPrice</name>
@@ -170,6 +182,20 @@
 				<outline color="000080" />
 				<font color="000000" name="Arial" size="8" />
 				<position>442 194 513 238</position>
+			</node>
+			<node id="Fiat_125p">
+				<name>Fiat_125p</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>583 632 666 687</position>
+			</node>
+			<node id="Renault_Kangoo">
+				<name>Renault_Kangoo</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>672 554 761 609</position>
 			</node>
 		</genie>
 	</extensions>

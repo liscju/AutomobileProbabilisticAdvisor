@@ -22,7 +22,7 @@ public class App {
             }};
     private static final List<String> LIST_OF_AVAILABLE_CARS =
             Arrays.asList("BugattiVeyron", "MacerattiGranTurismo", "Maybach_57S",
-                          "HammerH3", "KiaCedd");
+                          "HammerH3", "KiaCedd", "Fiat_125p", "Renault_Kangoo");
 
     public static void main( String[] args ) throws NoSuchFieldException, IllegalAccessException, URISyntaxException, IOException {
         Network network = configureApp();
