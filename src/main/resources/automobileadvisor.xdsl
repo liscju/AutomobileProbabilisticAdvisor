@@ -10,7 +10,7 @@
 		<cpt id="ClientMoney">
 			<state id="PoorClient" />
 			<state id="MidWealthClient" />
-			<state id="RichMoney" />
+			<state id="RichClient" />
 			<probabilities>0.3333333333333334 0.3333333333333334 0.3333333333333333</probabilities>
 		</cpt>
 		<cpt id="ClientFamily">
