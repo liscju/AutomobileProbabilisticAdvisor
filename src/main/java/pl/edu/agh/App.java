@@ -19,6 +19,9 @@ public class App {
                 put("ClientFamily", Arrays.asList("SingleClient", "FamilyClient"));
                 put("ClientLocation", Arrays.asList("BigCity", "Village"));
             }};
+    private static final List<String> LIST_OF_AVAILABLE_CARS =
+            Arrays.asList("BugattiVeyron", "MacerattiGranTurismo", "Maybach_57S",
+                          "HammerH3", "KiaCedd");
 
     public static void main( String[] args ) throws NoSuchFieldException, IllegalAccessException, URISyntaxException, IOException {
         Network network = configureApp();
@@ -52,10 +55,14 @@ public class App {
 
         network.updateBeliefs();
 
-        for (int i = 0; i < network.getOutcomeCount("BugattiVeyron"); i++) {
-            String parentOutcomeId = network.getOutcomeId("BugattiVeyron", i);
-            double expectedUtility = network.getNodeValue("BugattiVeyron")[i];
-            System.out.println(parentOutcomeId + " " + expectedUtility);
+        for (String car : LIST_OF_AVAILABLE_CARS) {
+            System.out.println("Result for car: " + car);
+            for (int i = 0; i < network.getOutcomeCount(car); i++) {
+                String outcomeName = network.getOutcomeId(car, i);
+                double outcomeValue = network.getNodeValue(car)[i];
+                System.out.println(outcomeName + " " + outcomeValue);
+            }
+            System.out.println("End of result of car:" + car);
         }
     }
 }
