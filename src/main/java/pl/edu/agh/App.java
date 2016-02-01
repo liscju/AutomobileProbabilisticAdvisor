@@ -93,7 +93,7 @@ public class App {
             }
 
             if (buyValue == null || notBuyValue == null) {
-                throw new UnsupportedOperationException("Car should have in outcome values Buy and NotBuy");
+                throw new UnsupportedOperationException("Car " + car + "should have in outcome values Buy and NotBuy");
             }
 
             carMatchingResults.add(new CarMatchingResult(car, buyValue, notBuyValue));
