@@ -48,15 +48,7 @@ public class App {
 
         network.updateBeliefs();
 
-        for (String car : LIST_OF_AVAILABLE_CARS) {
-            System.out.println("Result for car: " + car);
-            for (int i = 0; i < network.getOutcomeCount(car); i++) {
-                String outcomeName = network.getOutcomeId(car, i);
-                double outcomeValue = network.getNodeValue(car)[i];
-                System.out.println(outcomeName + " " + outcomeValue);
-            }
-            System.out.println("End of result of car:" + car);
-        }
+        writeCarMatchingResult(network);
     }
 
     private static void setClientProperties(Network network, Scanner in) {
@@ -67,6 +59,18 @@ public class App {
             int propertyIndex = in.nextInt();
             network.setEvidence(clientProperty,
                     CLIENT_PROPERTIES.get(clientProperty).get(propertyIndex));
+        }
+    }
+
+    private static void writeCarMatchingResult(Network network) {
+        for (String car : LIST_OF_AVAILABLE_CARS) {
+            System.out.println("Result for car: " + car);
+            for (int i = 0; i < network.getOutcomeCount(car); i++) {
+                String outcomeName = network.getOutcomeId(car, i);
+                double outcomeValue = network.getNodeValue(car)[i];
+                System.out.println(outcomeName + " " + outcomeValue);
+            }
+            System.out.println("End of result of car:" + car);
         }
     }
 }
