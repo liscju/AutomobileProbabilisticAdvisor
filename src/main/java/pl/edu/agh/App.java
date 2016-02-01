@@ -44,14 +44,7 @@ public class App {
     private static void runApp(Network network) {
         Scanner in = new Scanner(System.in);
 
-        for (String clientProperty : CLIENT_PROPERTIES.keySet()) {
-            System.out.println("Choose property for: " + clientProperty);
-            System.out.println(CLIENT_PROPERTIES.get(clientProperty));
-            System.out.println("Write number to set property for value(starts from 0)");
-            int propertyIndex = in.nextInt();
-            network.setEvidence(clientProperty,
-                    CLIENT_PROPERTIES.get(clientProperty).get(propertyIndex));
-        }
+        setClientProperties(network, in);
 
         network.updateBeliefs();
 
@@ -63,6 +56,17 @@ public class App {
                 System.out.println(outcomeName + " " + outcomeValue);
             }
             System.out.println("End of result of car:" + car);
+        }
+    }
+
+    private static void setClientProperties(Network network, Scanner in) {
+        for (String clientProperty : CLIENT_PROPERTIES.keySet()) {
+            System.out.println("Choose property for: " + clientProperty);
+            System.out.println(CLIENT_PROPERTIES.get(clientProperty));
+            System.out.println("Write number to set property for value(starts from 0)");
+            int propertyIndex = in.nextInt();
+            network.setEvidence(clientProperty,
+                    CLIENT_PROPERTIES.get(clientProperty).get(propertyIndex));
         }
     }
 }
