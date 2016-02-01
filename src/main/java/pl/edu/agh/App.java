@@ -26,5 +26,18 @@ public class App {
             System.out.println(arg);
         }
         System.out.println("End of list of all nodes");
+
+        network.setEvidence("ClientAge", "YoungClient");
+        network.setEvidence("ClientMoney", "RichMoney");
+        network.setEvidence("ClientFamily", "SingleClient");
+        network.setEvidence("ClientLocation", "BigCity");
+
+        network.updateBeliefs();
+
+        for (int i = 0; i < network.getOutcomeCount("BugattiVeyron"); i++) {
+            String parentOutcomeId = network.getOutcomeId("BugattiVeyron", i);
+            double expectedUtility = network.getNodeValue("BugattiVeyron")[i];
+            System.out.println("");
+        }
     }
 }
