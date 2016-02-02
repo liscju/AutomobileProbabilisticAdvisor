@@ -13,23 +13,24 @@ import java.net.URISyntaxException;
 import java.util.*;
 
 public class App {
-    private static final Map<String, List<String>> CLIENT_PROPERTIES =
+    protected static final Map<String, List<String>> CLIENT_PROPERTIES =
             new HashMap<String, List<String>>() {{
                 put("ClientAge", Arrays.asList("YoungClient", "MidAgeClient", "OldClient"));
                 put("ClientMoney", Arrays.asList("PoorClient", "MidWealthClient", "RichClient"));
                 put("ClientFamily", Arrays.asList("SingleClient", "FamilyClient"));
                 put("ClientLocation", Arrays.asList("BigCity", "Village"));
             }};
-    private static final List<String> LIST_OF_AVAILABLE_CARS =
+    protected static final List<String> LIST_OF_AVAILABLE_CARS =
             Arrays.asList("BugattiVeyron", "MacerattiGranTurismo", "Maybach_57S",
                           "HammerH3", "KiaCedd", "Fiat_125p", "Renault_Kangoo");
 
     public static void main( String[] args ) throws NoSuchFieldException, IllegalAccessException, URISyntaxException, IOException {
         Network network = configureApp();
-        runApp(network);
+        App app=new App();
+        app.runApp(network);
     }
 
-    private static Network configureApp() throws IOException {
+    protected static Network configureApp() throws IOException {
         ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 
         System.loadLibrary("jsmile");
@@ -42,7 +43,7 @@ public class App {
         return network;
     }
 
-    private static void runApp(Network network) {
+    protected void runApp(Network network) {
         setClientProperties(network);
 
         network.updateBeliefs();
@@ -50,7 +51,7 @@ public class App {
         writeCarMatchingResult(network);
     }
 
-    private static void setClientProperties(Network network) {
+    protected void setClientProperties(Network network) {
         Scanner in = new Scanner(System.in);
         for (String clientProperty : CLIENT_PROPERTIES.keySet()) {
             System.out.println("Choose property for: " + clientProperty);
@@ -62,7 +63,7 @@ public class App {
         }
     }
 
-    private static void writeCarMatchingResult(Network network) {
+    protected void writeCarMatchingResult(Network network) {
         List<CarMatchingResult> carMatchingResults = getCarMatchingResults(network);
         Collections.sort(carMatchingResults, new Comparator<CarMatchingResult>() {
             @Override
@@ -76,7 +77,7 @@ public class App {
         }
     }
 
-    private static List<CarMatchingResult> getCarMatchingResults(Network network) {
+    protected List<CarMatchingResult> getCarMatchingResults(Network network) {
         List<CarMatchingResult> carMatchingResults = new LinkedList<>();
         for (String car : LIST_OF_AVAILABLE_CARS) {
             Double buyValue = null;
