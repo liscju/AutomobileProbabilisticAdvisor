@@ -113,6 +113,7 @@ public class GUIApp extends App {
         JScrollPane listScroller=new JScrollPane(resultList);
 
         resultsFrame.add(listScroller);
+        resultsFrame.add(resultsAndImagePane);
         resultsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         repaintResultAndImagePanel(resultsAndImagePane,carMatchingResults.get(0));
         resultsFrame.setSize(400,300);
@@ -136,8 +137,7 @@ public class GUIApp extends App {
         resultsPane.add(resultLabel);
         resultsPane.add(picLabel);
         panel.removeAll();
-        panel.add(resultLabel);
-        panel.add(picLabel);
+        panel.add(resultsPane);
         panel.updateUI();
     }
 }
